@@ -13,6 +13,5 @@ class Torch_Controller(Torch_Service):
                 if 'image' in request.files:
                     image_file = request.files['image']
                     image = Image.open(io.BytesIO(image_file.read()))
-                    image.show()
-                    
-                return "OK"
+                    final_evaluation = self.ai_inference_magic(image)
+                return final_evaluation
